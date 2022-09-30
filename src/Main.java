@@ -1,42 +1,34 @@
 public class Main {
 
-    // Задание 2
-    public static String versionOs (byte sisCl, int yearCl) {
+    // Задание 3
+    public static String daysDeLivery (int dayD) {
         String message = "";
-        int clientDeviceYear = 2015;
 
-        // операционная система клиента "iOS" = 0, "Android" = 1;
-        if (sisCl == 0) {
-            if (yearCl >= clientDeviceYear) {
-                message = ("Установите версию приложения для iOS по ссылке");
-            } else {
-                message = ("Установите облегченную версию приложения для iOS по ссылке");
-            }
-        }
+        int deliveryDay = 0;
+        int Distance1 = 20;
+        int Distance2 = 60;
+        int Distance3 = 100;
+        boolean deliveryCleint1 = dayD <= Distance1;
+        boolean deliveryCleint2 = dayD > Distance1 && dayD < Distance2;
+        boolean deliveryCleint3 = dayD >= Distance2 && dayD <= Distance3;
 
-        if (sisCl == 1) {
-            if (yearCl >= clientDeviceYear) {
-                message = ("Установите версию приложения для Android по ссылке");
-            } else {
-                message = ("Установите облегченную версию приложения для Android по ссылке");
-            }
-        }
+       if (deliveryCleint1)  deliveryDay = 1;
+       if (deliveryCleint2) deliveryDay = 2;
+       if (deliveryCleint3)  deliveryDay = 3;
+
+        message = "Для доставки вашей карты " +
+                "потребуется: " + deliveryDay + " рабочих дня";
+
         return message;
     }
 
     public static void main(String[] args) {
 
+        int deliveryDistance = 95; // количество километров до клиента
+        String daysDeLStr = "";
 
-        // возвращаемые значения
-        // считаем, что это оператор вернул значение ))
-        // операционная система клиента "iOS" = 0, "Android" = 1;
-
-        int clienYear = 2013;
-        byte clientOS = 1;
-        String ver = "";
-
-        ver = versionOs(clientOS, clienYear);
-        System.out.println(ver);
+        daysDeLStr = daysDeLivery(deliveryDistance);
+        System.out.println(daysDeLStr);
 
         }
 
